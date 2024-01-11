@@ -23,9 +23,3 @@ def create_look_ahead_mask(sequence_length):
 
     mask = tf.linalg.band_part(tf.ones((1, sequence_length, sequence_length)), -1, 0)
     return mask
-
-x = tf.constant([[7., 6., 0., 0., 1.], [1., 2., 3., 0., 0.], [0., 0., 0., 4., 5.]])
-
-print(tf.keras.activations.softmax(x))
-
-print(tf.keras.activations.softmax(x + (1 - create_padding_mask(x)) * -1.0e9))

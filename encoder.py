@@ -1,7 +1,6 @@
 import tensorflow as tf
 from pos_encoding import positional_encoding
 from utils import FullyConnected
-import numpy as np
 
 class EncoderLayer(tf.keras.layers.Layer):
     def __init__(self, embedding_dim, num_heads, fully_connected_dim,
@@ -88,13 +87,3 @@ class Encoder(tf.keras.layers.Layer):
             x = self.enc_layers[i](x, training, mask)
 
         return x
-    
-
-
-
-# tf.random.set_seed(10)
-
-# q = np.array([[[1, 0, 1, 1], [0, 1, 1, 1], [1, 0, 0, 1]]]).astype(np.float32)
-# encoder_layer1 = EncoderLayer(4, 2, 8)
-
-# encoded = encoder_layer1(q, True, np.array([[1, 0, 1]]))

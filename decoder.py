@@ -55,7 +55,7 @@ class DecoderLayer(tf.keras.layers.Layer):
 class Decoder(tf.keras.layers.Layer):
     def __init__(self, num_layers, embedding_dim, num_heads, fully_connected_dim, target_vocab_size,
                maximum_position_encoding, dropout_rate=0.1, layernorm_eps=1e-6):
-        super(Decoder).__init__()
+        super(Decoder, self).__init__()
 
         self.embedding_dim = embedding_dim
         self.num_layers = num_layers
